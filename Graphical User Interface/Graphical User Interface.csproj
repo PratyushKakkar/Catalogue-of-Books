@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6AE5BA0D-2474-4D9D-8432-B343E73B627F}</ProjectGuid>
+    <ProjectGuid>{69C09370-E13A-4D4C-A4D0-1163845B1D72}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Graphical_User_Interface</RootNamespace>
     <AssemblyName>Graphical User Interface</AssemblyName>
@@ -96,7 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CatalogueOfBooks\CatalogueOfBooks.csproj">
-      <Project>{aab697b2-07c3-4672-8b06-f9817aaed4f8}</Project>
+      <Project>{747350da-336c-4928-bae7-0d8263224c8d}</Project>
       <Name>CatalogueOfBooks</Name>
     </ProjectReference>
   </ItemGroup>

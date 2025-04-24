@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphical User Interface", "Graphical User Interface.csproj", "{69C09370-E13A-4D4C-A4D0-1163845B1D72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogueOfBooks", "..\CatalogueOfBooks\CatalogueOfBooks.csproj", "{747350DA-336C-4928-BAE7-0D8263224C8D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69C09370-E13A-4D4C-A4D0-1163845B1D72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69C09370-E13A-4D4C-A4D0-1163845B1D72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69C09370-E13A-4D4C-A4D0-1163845B1D72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69C09370-E13A-4D4C-A4D0-1163845B1D72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{747350DA-336C-4928-BAE7-0D8263224C8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{747350DA-336C-4928-BAE7-0D8263224C8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{747350DA-336C-4928-BAE7-0D8263224C8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{747350DA-336C-4928-BAE7-0D8263224C8D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {93C2354E-E4E4-4EEA-82A3-88B408E5F64D}
+	EndGlobalSection
+EndGlobal
