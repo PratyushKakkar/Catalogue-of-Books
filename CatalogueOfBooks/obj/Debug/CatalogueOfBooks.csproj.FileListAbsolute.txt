@@ -1,0 +1,6 @@
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\CatalogueOfBooks\bin\Debug\CatalogueOfBooks.dll
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\CatalogueOfBooks\bin\Debug\CatalogueOfBooks.pdb
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\CatalogueOfBooks\obj\Debug\CatalogueOfBooks.csproj.AssemblyReference.cache
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\CatalogueOfBooks\obj\Debug\CatalogueOfBooks.csproj.CoreCompileInputs.cache
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\CatalogueOfBooks\obj\Debug\CatalogueOfBooks.dll
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\CatalogueOfBooks\obj\Debug\CatalogueOfBooks.pdb
