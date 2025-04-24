@@ -1,0 +1,93 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\rutwik.gaikwad\\source\\repos\\DSA_Assign_2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{89F5BB89-208B-45D7-A1B7-2CE8142EE850}|DSA_Assign_2.csproj|c:\\users\\rutwik.gaikwad\\source\\repos\\dsa_assign_2\\catalogueofbooks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89F5BB89-208B-45D7-A1B7-2CE8142EE850}|DSA_Assign_2.csproj|solutionrelative:catalogueofbooks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89F5BB89-208B-45D7-A1B7-2CE8142EE850}|DSA_Assign_2.csproj|C:\\Users\\rutwik.gaikwad\\source\\repos\\DSA_Assign_2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89F5BB89-208B-45D7-A1B7-2CE8142EE850}|DSA_Assign_2.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89F5BB89-208B-45D7-A1B7-2CE8142EE850}|DSA_Assign_2.csproj|C:\\Users\\rutwik.gaikwad\\source\\repos\\DSA_Assign_2\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89F5BB89-208B-45D7-A1B7-2CE8142EE850}|DSA_Assign_2.csproj|solutionrelative:book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89F5BB89-208B-45D7-A1B7-2CE8142EE850}|DSA_Assign_2.csproj|C:\\Users\\rutwik.gaikwad\\source\\repos\\DSA_Assign_2\\libraryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89F5BB89-208B-45D7-A1B7-2CE8142EE850}|DSA_Assign_2.csproj|solutionrelative:libraryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LibraryService.cs",
+              "DocumentMoniker": "C:\\Users\\rutwik.gaikwad\\source\\repos\\DSA_Assign_2\\LibraryService.cs",
+              "RelativeDocumentMoniker": "LibraryService.cs",
+              "ToolTip": "C:\\Users\\rutwik.gaikwad\\source\\repos\\DSA_Assign_2\\LibraryService.cs",
+              "RelativeToolTip": "LibraryService.cs",
+              "ViewState": "AgIAABcBAAAAAAAAAAAQwEUBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T20:22:32.71Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CatalogueOfBooks.cs",
+              "DocumentMoniker": "C:\\Users\\rutwik.gaikwad\\source\\repos\\DSA_Assign_2\\CatalogueOfBooks.cs",
+              "RelativeDocumentMoniker": "CatalogueOfBooks.cs",
+              "ToolTip": "C:\\Users\\rutwik.gaikwad\\source\\repos\\DSA_Assign_2\\CatalogueOfBooks.cs",
+              "RelativeToolTip": "CatalogueOfBooks.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T20:21:00.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Book.cs",
+              "DocumentMoniker": "C:\\Users\\rutwik.gaikwad\\source\\repos\\DSA_Assign_2\\Book.cs",
+              "RelativeDocumentMoniker": "Book.cs",
+              "ToolTip": "C:\\Users\\rutwik.gaikwad\\source\\repos\\DSA_Assign_2\\Book.cs",
+              "RelativeToolTip": "Book.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T19:05:31.305Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\rutwik.gaikwad\\source\\repos\\DSA_Assign_2\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\rutwik.gaikwad\\source\\repos\\DSA_Assign_2\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T18:54:59.455Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
