@@ -21,13 +21,15 @@ namespace CatalogueOfBooks
           public string Description { get; set; }
           public decimal Price { get; set; }
 
+          //Borrowing Properties
           public bool IsBorrowed { get; set; }                        //bool to store if the book is borrowed
           public string BorrowedBy { get; set; }                    //Person who Borrowed the book
           public DateTime BorrowDate { get; set; }               //Date when the book was borrowed
           public DateTime DueDate { get; set; }                  //Due date for returning the book
 
+          //Reservation Properties
           public bool IsReserved { get; set; }                        //bool to store if the book is reserved
-          public Queue<Reservation> ReservationQueue { get; } = new Queue<Reservation>();
+          public List<Reservation> ReservationQueue { get; } = new List<Reservation>();
 
 
           // Constructor
@@ -75,40 +77,54 @@ namespace CatalogueOfBooks
 
           public bool Return()
           {
-               // Book is not borrowed 
+               // Book is not currently borrowed
                if (!IsBorrowed)
                     return false;
 
-               //if Reservations exist (someone is in Queue to borrow the book)
+               // End current borrowing
+               IsBorrowed = false;
+               BorrowedBy = null;
+               BorrowDate = DateTime.MinValue;
+               DueDate = DateTime.MinValue;
+
+               // Check for pending reservations
                if (ReservationQueue.Count > 0)
                {
-                    Reservation r = ReservationQueue.Dequeue();
-                    IsReserved = (ReservationQueue.Count>0) ? true : false;
+                    Reservation r = ReservationQueue.Remove();
 
-                    //Move Reservation to Borrowing
+                    // Assign the book to the next person
                     IsBorrowed = true;
                     BorrowedBy = r.ReservedBy;
                     BorrowDate = r.ReservedDate;
-                    DueDate = BorrowDate.AddDays(10);  
+                    DueDate = BorrowDate.AddDays(10);
+
+                    // IsReserved = true if more reservations remain
+                    IsReserved = ReservationQueue.Count > 0;
                }
                else
                {
                     IsReserved = false;
-                    IsBorrowed = false;
-                    BorrowedBy = null;
-                    BorrowDate = DateTime.MinValue;
                }
 
-               // Successfully Returned book
+               // Successfully returned (and maybe re-borrowed)
                return true;
           }
 
-          public void Reserve(string user, DateTime reservedDate)
+          public void Reserve(Reservation reservation)
           {
                // Add reservation to the queue
-               ReservationQueue.Enqueue(new Reservation(user, reservedDate));
+               ReservationQueue.Enqueue(reservation);
                IsReserved = true;
            }
+
+          public void EditReservation(string user, DateTime reservationDate)
+          {
+               // Check if the book is reserved
+               if (IsReserved)
+               {
+                    
+               }
+          }
 
           public decimal CalculateFine()
           {

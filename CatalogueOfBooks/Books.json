@@ -1,0 +1,40 @@
+[
+  {
+    "ISBN": "978-3-16-148410-0",
+    "Title": "The Great Gatsby",
+    "DateOfPublication": "1925-04-10T00:00:00",
+    "Publisher": "Scribner",
+    "Authors": [
+      "F. Scott Fitzgerald"
+    ],
+    "Genre": "Fiction",
+    "Language": "English",
+    "Description": "A novel set in the Roaring Twenties.",
+    "Price": 10.99,
+    "IsBorrowed": false,
+    "BorrowedBy": null,
+    "BorrowDate": "0001-01-01T00:00:00",
+    "DueDate": "0001-01-01T00:00:00",
+    "IsReserved": false,
+    "ReservationQueue": []
+  },
+  {
+    "ISBN": "978-3-16-148410-0",
+    "Title": "The Great Gatsby",
+    "DateOfPublication": "1925-04-10T00:00:00",
+    "Publisher": "Scribner",
+    "Authors": [
+      "F. Scott Fitzgerald"
+    ],
+    "Genre": "Fiction",
+    "Language": "English",
+    "Description": "A novel set in the Roaring Twenties.",
+    "Price": 10.99,
+    "IsBorrowed": false,
+    "BorrowedBy": null,
+    "BorrowDate": "0001-01-01T00:00:00",
+    "DueDate": "0001-01-01T00:00:00",
+    "IsReserved": false,
+    "ReservationQueue": []
+  }
+]

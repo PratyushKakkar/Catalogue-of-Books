@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//Class to define a Reservation,
+//used as a Queue in the Book class
+
 namespace CatalogueOfBooks
 {
      public class Reservation
      {
-          public string ReservedBy { get; }      // User Name
+          public string ReservedBy { get; }            // User Name
           public DateTime ReservedDate { get; }  // When the reservation was made
 
           public Reservation(string reservedBy, DateTime reservedDate)

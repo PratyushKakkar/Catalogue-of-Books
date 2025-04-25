@@ -1,0 +1,24 @@
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Command Line Interface\bin\Debug\Command Line Interface.exe.config
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Command Line Interface\bin\Debug\Command Line Interface.exe
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Command Line Interface\bin\Debug\Command Line Interface.pdb
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Command Line Interface\obj\Debug\Command Line Interface.csproj.AssemblyReference.cache
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Command Line Interface\obj\Debug\Command Line Interface.csproj.CoreCompileInputs.cache
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Command Line Interface\obj\Debug\Command Line Interface.exe
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Command Line Interface\obj\Debug\Command Line Interface.pdb
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Command Line Interface\bin\Debug\CatalogueOfBooks.dll
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Command Line Interface\bin\Debug\System.Text.Json.dll
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Command Line Interface\bin\Debug\System.Memory.dll
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Command Line Interface\bin\Debug\System.ValueTuple.dll
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Command Line Interface\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Command Line Interface\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Command Line Interface\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Command Line Interface\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Command Line Interface\bin\Debug\System.Buffers.dll
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Command Line Interface\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Command Line Interface\bin\Debug\CatalogueOfBooks.pdb
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Command Line Interface\bin\Debug\CatalogueOfBooks.dll.config
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Command Line Interface\bin\Debug\System.Memory.xml
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Command Line Interface\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Command Line Interface\bin\Debug\System.Buffers.xml
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Command Line Interface\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Command Line Interface\obj\Debug\Command .389EDBB4.Up2Date
