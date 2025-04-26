@@ -56,9 +56,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Book.cs" />
+    <Compile Include="BookingRecord.cs" />
     <Compile Include="BookInventory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reservation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

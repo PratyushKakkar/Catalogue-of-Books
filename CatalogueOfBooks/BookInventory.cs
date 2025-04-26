@@ -49,13 +49,13 @@ namespace CatalogueOfBooks
                return true;
           }
 
-          public bool Reserve(string ISBN, Reservation reservation)
+          public bool Reserve(string ISBN, DateTime reservationDate, string userName)
           {
                foreach (Book existingBook in books)
                {
                     if (existingBook.ISBN == ISBN)
                     {
-                         existingBook.Reserve(reservation);
+                         existingBook.Reserve( reservationDate,  userName);
                          return true; // Book reserved successfully
                     }
                }

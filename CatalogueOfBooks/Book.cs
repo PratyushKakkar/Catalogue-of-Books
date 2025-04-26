@@ -29,8 +29,13 @@ namespace CatalogueOfBooks
 
           //Reservation Properties
           public bool IsReserved { get; set; }                        //bool to store if the book is reserved
-          public List<Reservation> ReservationQueue { get; } = new List<Reservation>();
+          public SortedDictionary<DateTime, string> Reservations = new SortedDictionary<DateTime, string>(); //Reservation Date is the unique key, user name is value 
 
+          //History of All People who had borrowed the books
+          public List<BookingRecord> BorrowingHistory = new List<BookingRecord>();
+
+          //For Testing Purpose, to check outputs based on dates other than today. (Defaults to Now)
+          public DateTime AccessDate { get; set; } = DateTime.Now;
 
           // Constructor
           public Book(string isbn,
@@ -41,7 +46,8 @@ namespace CatalogueOfBooks
                  string genre,
                  string language,
                  string description,
-                 decimal price )
+                 decimal price,
+                  DateTime? accessDate = null)
           {
                ISBN = isbn;
                Title = title;
@@ -57,10 +63,13 @@ namespace CatalogueOfBooks
                IsBorrowed = false;
                BorrowedBy = null;
                BorrowDate = DateTime.MinValue;
-
                IsReserved = false;
+
+               // Initialize DateToday
+               AccessDate = accessDate ?? DateTime.Now;
           }
 
+          //Borrow the Book
           public bool Borrow(string user, DateTime borrowDate)
           {
                // Book is already borrowed
@@ -75,11 +84,15 @@ namespace CatalogueOfBooks
                return true;  
           }
 
+          //Returning the Book
           public bool Return()
           {
                // Book is not currently borrowed
                if (!IsBorrowed)
                     return false;
+
+               // Record the borrowing history before resetting
+               AddBorrowingRecord();
 
                // End current borrowing
                IsBorrowed = false;
@@ -88,18 +101,22 @@ namespace CatalogueOfBooks
                DueDate = DateTime.MinValue;
 
                // Check for pending reservations
-               if (ReservationQueue.Count > 0)
+               if (Reservations.Count > 0)
                {
-                    Reservation r = ReservationQueue.Remove();
+                    // Get the first reservation
+                    var nextReservation = Reservations.First();
 
-                    // Assign the book to the next person
+                    // Remove it from the dictionary
+                    Reservations.Remove(nextReservation.Key);
+
+                    // Assign the book to the next user
                     IsBorrowed = true;
-                    BorrowedBy = r.ReservedBy;
-                    BorrowDate = r.ReservedDate;
+                    BorrowedBy = nextReservation.Value;
+                    BorrowDate = nextReservation.Key;
                     DueDate = BorrowDate.AddDays(10);
 
                     // IsReserved = true if more reservations remain
-                    IsReserved = ReservationQueue.Count > 0;
+                    IsReserved = Reservations.Count > 0;
                }
                else
                {
@@ -110,33 +127,68 @@ namespace CatalogueOfBooks
                return true;
           }
 
-          public void Reserve(Reservation reservation)
+
+          //Making a Reservation
+          public void Reserve(DateTime reservationDate, string userName)
           {
-               // Add reservation to the queue
-               ReservationQueue.Enqueue(reservation);
+               // Add reservation to the queue (Sorted Dictionary)
+               Reservations.Add(reservationDate, userName);
                IsReserved = true;
            }
 
-          public void EditReservation(string user, DateTime reservationDate)
+          //Updates User's name for a Specific Reservation Date
+          public bool EditReservationName(DateTime reservationDate, string newName)
           {
-               // Check if the book is reserved
-               if (IsReserved)
-               {
-                    
+               // Check if Reservation Exists
+               if (Reservations.ContainsKey(reservationDate)) { 
+                    Reservations[reservationDate] = newName;
+                    return true;
                }
+               return false;
           }
 
-          public decimal CalculateFine()
+          //Updates Reservation for a Specific User
+          public bool EditReservationDate(DateTime oldReservationDate, DateTime newReservationDate)
           {
-               // Calculate fine if the book is overdue
-               if (IsBorrowed && (DateTime.Now > DueDate))
+               // Check if the old reservation exists, & new Resrvation is available
+               if (Reservations.ContainsKey(oldReservationDate) && !Reservations.ContainsKey(newReservationDate))
                {
-                    TimeSpan overdueDays = DateTime.Now - DueDate;
+                    string reservedBy = Reservations[oldReservationDate];
+
+                    // Remove the Old reservation
+                    Reservations.Remove(oldReservationDate);
+
+                    //Add the New Reservation
+                    Reservations.Add(newReservationDate, reservedBy);
+
+                    return true;
+               }
+               return false;
+          }
+          
+          //Calculating the Book's time from today.
+          public decimal CalculateFine() { 
+               // Checking if book is Borrowed, & actually Overdue
+               if (IsBorrowed && (AccessDate > DueDate))
+               {
+                    TimeSpan overdueDays = AccessDate - DueDate;
                     return (decimal)overdueDays.TotalDays * 0.50m; // 0.50 per day
                }
 
                // No fine if not overdue or not borrowed
                return 0.0m;
+           }
+
+          //Add a Record of Book Borowing (when it is returned)
+          private void AddBorrowingRecord()
+          {
+               BorrowingHistory.Add(new BookingRecord
+               {
+                    Borrower = BorrowedBy,
+                    BorrowDate = BorrowDate,
+                    ReturnDate = DateTime.Now,
+                    FinePaid = CalculateFine()
+               });
           }
      }
 }
