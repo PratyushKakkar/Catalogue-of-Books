@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Text.Json;
+//Package to compare Similarity between strings
 using FuzzySharp;
 
 namespace CatalogueOfBooks
@@ -53,8 +54,21 @@ namespace CatalogueOfBooks
                return true;
           }
 
+          public bool EditBook(Book updatedBook)
+          {
+               foreach (Book existingBook in books)
+               {
+                    if (updatedBook.ISBN == existingBook.ISBN)
+                    {
+                         Remove(existingBook.ISBN);
+                         Add(updatedBook);
+                         SaveToFile();
+                         return true;
+                    }   
+               }
+               return false;       //Book Not Found
+          }
 
-          
           public bool Borrow(string ISBN, string user, DateTime borrowDate)
           {
                bool borrowed = false;
@@ -176,35 +190,53 @@ namespace CatalogueOfBooks
                return sortedBooks;
           }
 
-          // Search by ISBN (exact match)
-          public Book SearchByISBN(string isbn)
+          // Search by ISBN (Very pricise match)
+          public SortedList<decimal, Book> SearchByISBN(string isbn)
           {
+               SortedList<decimal, Book> sortedBooks = new SortedList<decimal, Book>();
+
+               // Iterate through the list of books
                foreach (Book book in books)
                {
-                    if (book.ISBN == isbn)
+                    // Generate a very small random number between 1.00 and 1.01
+                    decimal randomDecimal = 1.0m + ((decimal)rand.NextDouble() * 0.01m);
+
+                    //Multiplies with score (level of matching) to avoid duplicate keys.
+                    decimal matchScore = Fuzz.WeightedRatio(isbn, book.ISBN) * randomDecimal;
+
+                    // If the match score is very similar, add to List
+                    if (matchScore > 90)
                     {
-                         return book;
+                         sortedBooks.Add(matchScore, book);
                     }
                }
-               return null;
+               return sortedBooks;
           }
 
-          // Search by Title (partial match, case-insensitive)
-          public List<Book> SearchByTitle(string title)
+
+          // Search by Title (partial match)
+          public SortedList<decimal, Book> SearchByTitle(string title)
           {
-               List<Book> bookWithTitle = new List<Book>();
+               SortedList<decimal, Book> sortedBooks = new SortedList<decimal, Book>();
 
                foreach (Book book in books)
                {
-                    if (book.Title.IndexOf(title, StringComparison.OrdinalIgnoreCase) >= 0)
-                    {
-                         bookWithTitle.Add(book);
-                    }
+                    // Generate a very small random number between 1.00 and 1.01
+                    decimal randomDecimal = 1.0m + ((decimal)rand.NextDouble() * 0.01m);
+
+                    //Multiplies with score (level of matching) to avoid duplicate keys.
+                    decimal matchScore = Fuzz.WeightedRatio(title, book.Title) * randomDecimal;
+
+                    //Add to List if match is above average
+                    if (matchScore > 70)
+                         sortedBooks.Add(matchScore, book);
+                    
                }
-               return bookWithTitle;
+               return sortedBooks;
           }
 
-          // Search by Publication Year
+
+          // Search by Publication Year (Exact)
           public List<Book> SearchByPublicationYear(int year)
           {
                List<Book> results = new List<Book>();
@@ -229,74 +261,100 @@ namespace CatalogueOfBooks
                     //Generate a very small random num between 1.00 & 1.01
                     decimal randomDecimal = 1.0m + ((decimal)rand.NextDouble() * 0.01m);
 
-                    //Multiplies with score to avoid duplicate keys.
+                    //Multiplies with score (level of matching) to avoid duplicate keys.
                     decimal matchScore = Fuzz.WeightedRatio(publisher, book.Publisher) * randomDecimal;
-                    sortedBooks.Add(matchScore, book);
+
+                    //Adds if the match is above average
+                    if(matchScore > 70)
+                         sortedBooks.Add(matchScore, book);
                }
 
                return sortedBooks;
           }
 
           // Search by Author (partial match, case-insensitive)
-          public List<Book> SearchByAuthor(string author)
+          public SortedList<decimal, Book> SearchByAuthor(string author)
           {
-               List<Book> results = new List<Book>();
+               SortedList<decimal, Book> sortedBooks = new SortedList<decimal, Book>();
+
                foreach (Book book in books)
                {
                     foreach (string bookAuthor in book.Authors)
                     {
-                         if (bookAuthor.IndexOf(author, StringComparison.OrdinalIgnoreCase) >= 0)
+                         decimal randomDecimal = 1.0m + ((decimal)rand.NextDouble() * 0.01m);
+
+                         decimal matchScore = Fuzz.WeightedRatio(author, bookAuthor) * randomDecimal;
+
+                         if (matchScore > 70)
                          {
-                              results.Add(book);
+                              sortedBooks.Add(matchScore, book);
                               break;
                          }
                     }
                }
-               return results;
+               return sortedBooks;
           }
 
           // Search by Genre (exact match, case-insensitive)
-          public List<Book> SearchByGenre(string genre)
+          public SortedList<decimal, Book> SearchByGenre(string genre)
           {
-               List<Book> results = new List<Book>();
+               SortedList<decimal, Book> sortedBooks = new SortedList<decimal, Book>();
+
                foreach (Book book in books)
                {
-                    if (string.Equals(book.Genre, genre, StringComparison.OrdinalIgnoreCase))
+                    decimal randomDecimal = 1.0m + ((decimal)rand.NextDouble() * 0.01m);
+
+                    decimal matchScore = Fuzz.WeightedRatio(genre, book.Genre) * randomDecimal;
+
+                    if (matchScore > 80)
                     {
-                         results.Add(book);
+                         sortedBooks.Add(matchScore, book);
                     }
                }
-               return results;
+               return sortedBooks;
           }
 
           // Search by Language (exact match, case-insensitive)
-          public List<Book> SearchByLanguage(string language)
+          public SortedList<decimal, Book> SearchByLanguage(string language)
           {
-               List<Book> results = new List<Book>();
+               SortedList<decimal, Book> sortedBooks = new SortedList<decimal, Book>();
+
                foreach (Book book in books)
                {
-                    if (string.Equals(book.Language, language, StringComparison.OrdinalIgnoreCase))
+                    decimal randomDecimal = 1.0m + ((decimal)rand.NextDouble() * 0.01m);
+
+                    decimal matchScore = Fuzz.WeightedRatio(language, book.Language) * randomDecimal;
+
+                    if (matchScore > 90)
                     {
-                         results.Add(book);
+                         sortedBooks.Add(matchScore, book);
                     }
                }
-               return results;
+               return sortedBooks;
           }
 
           // Search in Description (partial match, case-insensitive)
-          public List<Book> SearchInDescription(string text)
+          public SortedList<decimal, Book> SearchInDescription(string text)
           {
-               List<Book> results = new List<Book>();
+               SortedList<decimal, Book> sortedBooks = new SortedList<decimal, Book>();
+
                foreach (Book book in books)
                {
-                    if (book.Description != null &&
-                        book.Description.IndexOf(text, StringComparison.OrdinalIgnoreCase) >= 0)
+                    if (book.Description != null)
                     {
-                         results.Add(book);
+                         decimal randomDecimal = 1.0m + ((decimal)rand.NextDouble() * 0.01m);
+
+                         decimal matchScore = Fuzz.WeightedRatio(text, book.Description) * randomDecimal;
+
+                         if (matchScore > 70)
+                         {
+                              sortedBooks.Add(matchScore, book);
+                         }
                     }
                }
-               return results;
+               return sortedBooks;
           }
+
 
           // Search by Price Range
           public List<Book> SearchByPriceRange(decimal minPrice, decimal maxPrice)
@@ -332,7 +390,7 @@ namespace CatalogueOfBooks
                     foreach (var book in books)
                     {
                          if (book.Reservations == null)
-                              book.Reservations = new SortedDictionary<DateTime, string>();
+                              book.Reservations = new SortedList<DateTime, string>();
 
                          if (book.BorrowingHistory == null)
                               book.BorrowingHistory = new List<BookingRecord>();

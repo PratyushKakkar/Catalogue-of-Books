@@ -3,13 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Anku\\Desktop\\Class Notes\\Year 2\\Algorithm \u0026 Data Structure\\Catalogue-of-Books\\Graphical User Interface\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{747350DA-336C-4928-BAE7-0D8263224C8D}|..\\CatalogueOfBooks\\CatalogueOfBooks.csproj|c:\\users\\anku\\desktop\\class notes\\year 2\\algorithm \u0026 data structure\\catalogue-of-books\\catalogueofbooks\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{04723158-0597-4FE8-919D-150520564D4D}|..\\Command Line Interface\\Command Line Interface.csproj|c:\\users\\anku\\desktop\\class notes\\year 2\\algorithm \u0026 data structure\\catalogue-of-books\\command line interface\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{747350DA-336C-4928-BAE7-0D8263224C8D}|..\\CatalogueOfBooks\\CatalogueOfBooks.csproj|c:\\users\\anku\\desktop\\class notes\\year 2\\algorithm \u0026 data structure\\catalogue-of-books\\catalogueofbooks\\bookinventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{04723158-0597-4FE8-919D-150520564D4D}|..\\Command Line Interface\\Command Line Interface.csproj|c:\\users\\anku\\desktop\\class notes\\year 2\\algorithm \u0026 data structure\\catalogue-of-books\\command line interface\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{747350DA-336C-4928-BAE7-0D8263224C8D}|..\\CatalogueOfBooks\\CatalogueOfBooks.csproj|c:\\users\\anku\\desktop\\class notes\\year 2\\algorithm \u0026 data structure\\catalogue-of-books\\catalogueofbooks\\books.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
@@ -30,13 +27,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Books.json",
               "DocumentMoniker": "C:\\Users\\Anku\\Desktop\\Class Notes\\Year 2\\Algorithm \u0026 Data Structure\\Catalogue-of-Books\\CatalogueOfBooks\\Books.json",
               "RelativeDocumentMoniker": "..\\CatalogueOfBooks\\Books.json",
               "ToolTip": "C:\\Users\\Anku\\Desktop\\Class Notes\\Year 2\\Algorithm \u0026 Data Structure\\Catalogue-of-Books\\CatalogueOfBooks\\Books.json",
               "RelativeToolTip": "..\\CatalogueOfBooks\\Books.json",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAQAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-04-27T14:50:24.963Z",
               "EditorCaption": ""
@@ -49,7 +46,7 @@
               "RelativeDocumentMoniker": "..\\CatalogueOfBooks\\BookInventory.cs",
               "ToolTip": "C:\\Users\\Anku\\Desktop\\Class Notes\\Year 2\\Algorithm \u0026 Data Structure\\Catalogue-of-Books\\CatalogueOfBooks\\BookInventory.cs",
               "RelativeToolTip": "..\\CatalogueOfBooks\\BookInventory.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAA0wDcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-25T14:54:22.118Z",
               "EditorCaption": ""
@@ -57,25 +54,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Book.cs",
-              "DocumentMoniker": "C:\\Users\\Anku\\Desktop\\Class Notes\\Year 2\\Algorithm \u0026 Data Structure\\Catalogue-of-Books\\CatalogueOfBooks\\Book.cs",
-              "RelativeDocumentMoniker": "..\\CatalogueOfBooks\\Book.cs",
-              "ToolTip": "C:\\Users\\Anku\\Desktop\\Class Notes\\Year 2\\Algorithm \u0026 Data Structure\\Catalogue-of-Books\\CatalogueOfBooks\\Book.cs",
-              "RelativeToolTip": "..\\CatalogueOfBooks\\Book.cs",
-              "ViewState": "AgIAAJ0AAAAAAAAAAAAzwMEAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-27T11:43:53.479Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Anku\\Desktop\\Class Notes\\Year 2\\Algorithm \u0026 Data Structure\\Catalogue-of-Books\\Command Line Interface\\Program.cs",
               "RelativeDocumentMoniker": "..\\Command Line Interface\\Program.cs",
               "ToolTip": "C:\\Users\\Anku\\Desktop\\Class Notes\\Year 2\\Algorithm \u0026 Data Structure\\Catalogue-of-Books\\Command Line Interface\\Program.cs",
               "RelativeToolTip": "..\\Command Line Interface\\Program.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAkwEoAAABNAAAAAAAAAA==",
+              "ViewState": "AgIAADUAAAAAAAAAAAAkwEoAAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-27T10:22:30.459Z",
               "EditorCaption": ""

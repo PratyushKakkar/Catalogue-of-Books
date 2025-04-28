@@ -30,7 +30,7 @@ namespace CatalogueOfBooks
 
           //Reservation Properties
           public bool IsReserved { get; set; }                        //bool to store if the book is reserved
-          public SortedDictionary<DateTime, string> Reservations = new SortedDictionary<DateTime, string>(); //Reservation Date is the unique key, user name is value 
+          public SortedList<DateTime, string> Reservations = new SortedList<DateTime, string>(); //Reservation Date is the unique key, user name is value 
 
           //History of All People who had borrowed the books
           public List<BookingRecord> BorrowingHistory = new List<BookingRecord>();
@@ -73,7 +73,7 @@ namespace CatalogueOfBooks
           //Default Constructor for Json Loading from file
           public Book()
           {
-               Reservations = new SortedDictionary<DateTime, string>(); 
+               Reservations = new SortedList<DateTime, string>(); 
                BorrowingHistory = new List<BookingRecord>(); 
           }
 
