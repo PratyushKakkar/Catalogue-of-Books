@@ -19,3 +19,4 @@ C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of
 C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\CatalogueOfBooks\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\CatalogueOfBooks\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\CatalogueOfBooks\obj\Debug\Catalogu.7C10852D.Up2Date
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\CatalogueOfBooks\bin\Debug\FuzzySharp.dll

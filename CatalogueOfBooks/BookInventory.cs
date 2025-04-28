@@ -5,22 +5,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Text.Json;
+using FuzzySharp;
 
 namespace CatalogueOfBooks
 {
      public class BookInventory 
      {
-          private List<Book> books;
+          public List<Book> books = new List<Book>();
           private readonly string filePath;
+
+          //Object to generate Random numbers
+          Random rand = new Random();
 
           public BookInventory(string file)
           {
-              LoadFromFile(file);
+              // TEMPORARYILY LoadFromFile(file);
                filePath = file;
           }
 
           public bool Add(Book book)
-          {
+          { 
                // Check if Book already exists
                foreach (Book existingBook in books)
                {
@@ -49,26 +53,19 @@ namespace CatalogueOfBooks
                return true;
           }
 
-          public bool Reserve(string ISBN, DateTime reservationDate, string userName)
+
+          
+          public bool Borrow(string ISBN, string user, DateTime borrowDate)
           {
+               bool borrowed = false;
                foreach (Book existingBook in books)
                {
                     if (existingBook.ISBN == ISBN)
                     {
-                         existingBook.Reserve( reservationDate,  userName);
-                         return true; // Book reserved successfully
+                         borrowed = existingBook.Borrow(user, borrowDate.Date);
+                         SaveToFile();
+                         return borrowed;
                     }
-               }
-               return false; // Book not found
-          }
-          
-          public bool Borrow(string ISBN, string user, DateTime borrowDate)
-          {
-               foreach (Book existingBook in books)
-               {
-                    if (existingBook.ISBN == ISBN)
-                         return existingBook.Borrow(user, borrowDate);
-                    
                }
                return false; // Book not found
           }
@@ -78,10 +75,105 @@ namespace CatalogueOfBooks
                foreach (Book existingBook in books)
                {
                     if (existingBook.ISBN == ISBN)
-                         return existingBook.Return();
+                    {
+                         bool result = existingBook.Return();
+                         SaveToFile();
+                         return result;
+                    }
 
                }
                return false; // Book not found
+          }
+
+          public bool Reserve(string ISBN, DateTime reservationDate, string userName)
+          {
+               bool reserved = false;
+               foreach (Book existingBook in books)
+               {
+                    if (existingBook.ISBN == ISBN)
+                    {
+                         reserved = existingBook.Reserve(reservationDate.Date, userName);
+                         SaveToFile();
+                         return reserved; // Book reserved successfully
+                    }
+               }
+               return false; // Book not found
+          }
+
+          // Updates the name of the user for a specific reservation date for a specific book
+          public bool EditReservationName(string ISBN, DateTime reservationDate, string newName)
+          {
+               foreach (Book existingBook in books)
+               {
+                    if (existingBook.ISBN == ISBN)
+                    {
+                         bool updated = existingBook.EditReservationName(reservationDate.Date, newName);
+                         if (updated)
+                         {
+                              SaveToFile();
+                         }
+                         return updated;
+                    }
+               }
+               return false; // Book not found
+          }
+
+          // Updates the reservation date for a specific user's reservation for a specific book
+          public bool EditReservationDate(string ISBN, DateTime oldReservationDate, DateTime newReservationDate)
+          {
+               foreach (Book existingBook in books)
+               {
+                    if (existingBook.ISBN == ISBN)
+                    {
+                         bool updated = existingBook.EditReservationDate(oldReservationDate.Date, newReservationDate.Date);
+                         if (updated)
+                         {
+                              SaveToFile();
+                         }
+                         return updated;
+                    }
+               }
+               return false; // Book not found
+          }
+
+          public decimal CalculateFineToday(string ISBN)
+          {
+               foreach(Book existingBook in books)
+               {
+                    if (existingBook.ISBN == ISBN)
+                         return existingBook.CalculateFine();
+               }
+               return 0.0m;
+          }
+
+          //Books Sorted by Year and then Title
+          public List<Book> GetAllBooks()
+          {
+               //LINQ Query to Order books by Year & then Title, in Ascending Order.
+               List<Book> sortedBooks = (from book in books 
+                                                               orderby book.DateOfPublication.Year, book.Title 
+                                                               select book).ToList();
+               return sortedBooks;
+          }
+
+          //Returns List of Borrowed Books
+          public List<Book> GetAllBorrowedBooks()
+          {
+               //LINQ Query to Select All Books that are Borrowed
+               List<Book> sortedBooks = (from book in books
+                                                             where book.IsBorrowed == true
+                                                             select book).ToList();
+               return sortedBooks;
+          }
+
+          //Returns List of Reserved Books
+          public List<Book> GetAllReservedBooks()
+          {
+               //LINQ Query to Select All Books that are Borrowed
+               List<Book> sortedBooks = (from book in books
+                                         where book.IsReserved == true
+                                         select book).ToList();
+               return sortedBooks;
           }
 
           // Search by ISBN (exact match)
@@ -101,6 +193,7 @@ namespace CatalogueOfBooks
           public List<Book> SearchByTitle(string title)
           {
                List<Book> bookWithTitle = new List<Book>();
+
                foreach (Book book in books)
                {
                     if (book.Title.IndexOf(title, StringComparison.OrdinalIgnoreCase) >= 0)
@@ -126,17 +219,22 @@ namespace CatalogueOfBooks
           }
 
           // Search by Publisher (partial match, case-insensitive)
-          public List<Book> SearchByPublisher(string publisher)
+          public SortedList<decimal, Book> SearchByPublisher(string publisher)
           {
-               List<Book> results = new List<Book>();
+               SortedList<decimal, Book> sortedBooks = new SortedList<decimal, Book>();
+
+               //Ranks Books based on Match found
                foreach (Book book in books)
                {
-                    if (book.Publisher.IndexOf(publisher, StringComparison.OrdinalIgnoreCase) >= 0)
-                    {
-                         results.Add(book);
-                    }
+                    //Generate a very small random num between 1.00 & 1.01
+                    decimal randomDecimal = 1.0m + ((decimal)rand.NextDouble() * 0.01m);
+
+                    //Multiplies with score to avoid duplicate keys.
+                    decimal matchScore = Fuzz.WeightedRatio(publisher, book.Publisher) * randomDecimal;
+                    sortedBooks.Add(matchScore, book);
                }
-               return results;
+
+               return sortedBooks;
           }
 
           // Search by Author (partial match, case-insensitive)
@@ -220,18 +318,38 @@ namespace CatalogueOfBooks
                if (File.Exists(filePath))
                {
                     string json = File.ReadAllText(filePath);
-                    if(string.IsNullOrEmpty(json))
+                    if (string.IsNullOrEmpty(json))
                          return;
-                    books = JsonSerializer.Deserialize<List<Book>>(json);
+
+                    JsonSerializerOptions options = new JsonSerializerOptions
+                    {
+                         IncludeFields = true
+                    };
+
+                    books = JsonSerializer.Deserialize<List<Book>>(json, options) ?? new List<Book>();
+
+                    // Fix any null collections after loading
+                    foreach (var book in books)
+                    {
+                         if (book.Reservations == null)
+                              book.Reservations = new SortedDictionary<DateTime, string>();
+
+                         if (book.BorrowingHistory == null)
+                              book.BorrowingHistory = new List<BookingRecord>();
+                    }
                }
           }
+
 
           // Save books to file
           private void SaveToFile()
           {
-               JsonSerializerOptions options = new JsonSerializerOptions();
-               options.WriteIndented = true;
-               string json = JsonSerializer.Serialize(books, options);
+               JsonSerializerOptions options = new JsonSerializerOptions
+               {
+                    WriteIndented = true,
+                    IncludeFields = true
+               };
+               string json = JsonSerializer.Serialize(this, options);
                File.WriteAllText(filePath, json);
           }
      }

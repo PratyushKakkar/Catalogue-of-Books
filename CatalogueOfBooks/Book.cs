@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 //This is the Refrence Data Type 'Book'
@@ -69,6 +70,13 @@ namespace CatalogueOfBooks
                AccessDate = accessDate ?? DateTime.Now;
           }
 
+          //Default Constructor for Json Loading from file
+          public Book()
+          {
+               Reservations = new SortedDictionary<DateTime, string>(); 
+               BorrowingHistory = new List<BookingRecord>(); 
+          }
+
           //Borrow the Book
           public bool Borrow(string user, DateTime borrowDate)
           {
@@ -79,7 +87,7 @@ namespace CatalogueOfBooks
                // Successfully borrowed
                IsBorrowed = true;
                BorrowedBy = user;
-               BorrowDate = borrowDate;
+               BorrowDate = borrowDate.Date;
                DueDate = BorrowDate.AddDays(10);  // 10-day borrow period
                return true;  
           }
@@ -97,8 +105,8 @@ namespace CatalogueOfBooks
                // End current borrowing
                IsBorrowed = false;
                BorrowedBy = null;
-               BorrowDate = DateTime.MinValue;
-               DueDate = DateTime.MinValue;
+               BorrowDate = DateTime.MinValue.Date;
+               DueDate = DateTime.MinValue.Date;
 
                // Check for pending reservations
                if (Reservations.Count > 0)
@@ -112,8 +120,8 @@ namespace CatalogueOfBooks
                     // Assign the book to the next user
                     IsBorrowed = true;
                     BorrowedBy = nextReservation.Value;
-                    BorrowDate = nextReservation.Key;
-                    DueDate = BorrowDate.AddDays(10);
+                    BorrowDate = DateTime.Today.Date;            //ReservationDate was "expected one"
+                    DueDate = BorrowDate.AddDays(10);          
 
                     // IsReserved = true if more reservations remain
                     IsReserved = Reservations.Count > 0;
@@ -129,18 +137,19 @@ namespace CatalogueOfBooks
 
 
           //Making a Reservation
-          public void Reserve(DateTime reservationDate, string userName)
+          public bool Reserve(DateTime reservationDate, string userName)
           {
                // Add reservation to the queue (Sorted Dictionary)
                Reservations.Add(reservationDate, userName);
                IsReserved = true;
+               return true;
            }
 
           //Updates User's name for a Specific Reservation Date
           public bool EditReservationName(DateTime reservationDate, string newName)
           {
                // Check if Reservation Exists
-               if (Reservations.ContainsKey(reservationDate)) { 
+               if (Reservations.ContainsKey(reservationDate.Date)) { 
                     Reservations[reservationDate] = newName;
                     return true;
                }
@@ -153,13 +162,13 @@ namespace CatalogueOfBooks
                // Check if the old reservation exists, & new Resrvation is available
                if (Reservations.ContainsKey(oldReservationDate) && !Reservations.ContainsKey(newReservationDate))
                {
-                    string reservedBy = Reservations[oldReservationDate];
+                    string reservedBy = Reservations[oldReservationDate.Date];
 
                     // Remove the Old reservation
                     Reservations.Remove(oldReservationDate);
 
                     //Add the New Reservation
-                    Reservations.Add(newReservationDate, reservedBy);
+                    Reservations.Add(newReservationDate.Date, reservedBy);
 
                     return true;
                }
@@ -185,8 +194,8 @@ namespace CatalogueOfBooks
                BorrowingHistory.Add(new BookingRecord
                {
                     Borrower = BorrowedBy,
-                    BorrowDate = BorrowDate,
-                    ReturnDate = DateTime.Now,
+                    BorrowDate = BorrowDate.Date,
+                    ReturnDate = DateTime.Now.Date,
                     FinePaid = CalculateFine()
                });
           }
