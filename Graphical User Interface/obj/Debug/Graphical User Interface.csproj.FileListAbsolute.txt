@@ -16,3 +16,15 @@ C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of
 C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Graphical User Interface\obj\Debug\Graphica.71D62695.Up2Date
 C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Graphical User Interface\obj\Debug\Graphical User Interface.exe
 C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Graphical User Interface\obj\Debug\Graphical User Interface.pdb
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Graphical User Interface\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Graphical User Interface\bin\Debug\FuzzySharp.dll
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Graphical User Interface\bin\Debug\CatalogueOfBooks.dll.config
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Graphical User Interface\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Graphical User Interface\obj\Debug\BookActions.g.cs
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Graphical User Interface\obj\Debug\BookDetails.g.cs
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Graphical User Interface\obj\Debug\BookManager.g.cs
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Graphical User Interface\obj\Debug\SearchBooks.g.cs
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Graphical User Interface\obj\Debug\BookActions.baml
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Graphical User Interface\obj\Debug\BookDetails.baml
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Graphical User Interface\obj\Debug\BookManager.baml
+C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Graphical User Interface\obj\Debug\SearchBooks.baml

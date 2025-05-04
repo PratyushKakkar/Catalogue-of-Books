@@ -1,7 +1,0 @@
-C:\Users\rutwik.gaikwad\source\repos\DSA_Assign_2\bin\Debug\DSA_Assign_2.exe.config
-C:\Users\rutwik.gaikwad\source\repos\DSA_Assign_2\bin\Debug\DSA_Assign_2.exe
-C:\Users\rutwik.gaikwad\source\repos\DSA_Assign_2\bin\Debug\DSA_Assign_2.pdb
-C:\Users\rutwik.gaikwad\source\repos\DSA_Assign_2\obj\Debug\DSA_Assign_2.csproj.AssemblyReference.cache
-C:\Users\rutwik.gaikwad\source\repos\DSA_Assign_2\obj\Debug\DSA_Assign_2.csproj.CoreCompileInputs.cache
-C:\Users\rutwik.gaikwad\source\repos\DSA_Assign_2\obj\Debug\DSA_Assign_2.exe
-C:\Users\rutwik.gaikwad\source\repos\DSA_Assign_2\obj\Debug\DSA_Assign_2.pdb

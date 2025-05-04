@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CatalogueOfBooks;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,5 +25,11 @@ namespace Graphical_User_Interface
           {
                InitializeComponent();
           }
-     }
+
+          private void MainWindow1_Loaded(object sender, RoutedEventArgs e)
+          {
+               //Refers to the same instance of the Book Inventory
+              BookInventory inventory = SharedInventory.inventory;
+        }
+    }
 }

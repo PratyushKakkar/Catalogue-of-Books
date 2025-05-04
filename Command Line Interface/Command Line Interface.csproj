@@ -47,6 +47,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\BooksData\Books.json">
+      <Link>Books.json</Link>
+    </None>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,24 @@
+[
+  {
+    "ISBN": "1234",
+    "Title": "Book1",
+    "DateOfPublication": "2021-01-01T00:00:00",
+    "Publisher": "Publisher1",
+    "Authors": [
+      "Author1",
+      " Author2"
+    ],
+    "Genre": "Test",
+    "Language": "English",
+    "Description": "Test Book",
+    "Price": 0.99,
+    "IsBorrowed": false,
+    "BorrowedBy": null,
+    "BorrowDate": "0001-01-01T00:00:00",
+    "DueDate": "0001-01-01T00:00:00",
+    "IsReserved": false,
+    "Reservations": [],
+    "BorrowingHistory": [],
+    "AccessDate": "2025-05-02T21:19:08.0683362+01:00"
+  }
+]

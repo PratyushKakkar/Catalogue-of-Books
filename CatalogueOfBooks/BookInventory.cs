@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using System.Text.Json;
+using Newtonsoft.Json;
 //Package to compare Similarity between strings
 using FuzzySharp;
 
@@ -20,7 +20,8 @@ namespace CatalogueOfBooks
 
           public BookInventory(string file)
           {
-              // TEMPORARYILY LoadFromFile(file);
+               // Load books from JSON file
+               LoadFromJson();
                filePath = file;
           }
 
@@ -69,14 +70,14 @@ namespace CatalogueOfBooks
                return false;       //Book Not Found
           }
 
-          public bool Borrow(string ISBN, string user, DateTime borrowDate)
+          public bool Borrow(string ISBN, string user)
           {
                bool borrowed = false;
                foreach (Book existingBook in books)
                {
                     if (existingBook.ISBN == ISBN)
                     {
-                         borrowed = existingBook.Borrow(user, borrowDate.Date);
+                         borrowed = existingBook.Borrow(user);
                          SaveToFile();
                          return borrowed;
                     }
@@ -99,52 +100,16 @@ namespace CatalogueOfBooks
                return false; // Book not found
           }
 
-          public bool Reserve(string ISBN, DateTime reservationDate, string userName)
+          public bool Reserve(string ISBN, string userName)
           {
                bool reserved = false;
                foreach (Book existingBook in books)
                {
                     if (existingBook.ISBN == ISBN)
                     {
-                         reserved = existingBook.Reserve(reservationDate.Date, userName);
+                         reserved = existingBook.Reserve(userName);
                          SaveToFile();
                          return reserved; // Book reserved successfully
-                    }
-               }
-               return false; // Book not found
-          }
-
-          // Updates the name of the user for a specific reservation date for a specific book
-          public bool EditReservationName(string ISBN, DateTime reservationDate, string newName)
-          {
-               foreach (Book existingBook in books)
-               {
-                    if (existingBook.ISBN == ISBN)
-                    {
-                         bool updated = existingBook.EditReservationName(reservationDate.Date, newName);
-                         if (updated)
-                         {
-                              SaveToFile();
-                         }
-                         return updated;
-                    }
-               }
-               return false; // Book not found
-          }
-
-          // Updates the reservation date for a specific user's reservation for a specific book
-          public bool EditReservationDate(string ISBN, DateTime oldReservationDate, DateTime newReservationDate)
-          {
-               foreach (Book existingBook in books)
-               {
-                    if (existingBook.ISBN == ISBN)
-                    {
-                         bool updated = existingBook.EditReservationDate(oldReservationDate.Date, newReservationDate.Date);
-                         if (updated)
-                         {
-                              SaveToFile();
-                         }
-                         return updated;
                     }
                }
                return false; // Book not found
@@ -370,45 +335,32 @@ namespace CatalogueOfBooks
                return results;
           }
 
-          // Load books from file, if file exists & is not empty
-          private void LoadFromFile(string filePath)
+          // Save the list of books to a JSON file
+          public void SaveToFile()
           {
-               if (File.Exists(filePath))
+               var jsonSettings = new JsonSerializerSettings
                {
-                    string json = File.ReadAllText(filePath);
-                    if (string.IsNullOrEmpty(json))
-                         return;
+                    Formatting = Formatting.Indented,
+                    TypeNameHandling = TypeNameHandling.Auto // Handles types like Queue<T>
+               };
 
-                    JsonSerializerOptions options = new JsonSerializerOptions
-                    {
-                         IncludeFields = true
-                    };
-
-                    books = JsonSerializer.Deserialize<List<Book>>(json, options) ?? new List<Book>();
-
-                    // Fix any null collections after loading
-                    foreach (var book in books)
-                    {
-                         if (book.Reservations == null)
-                              book.Reservations = new SortedList<DateTime, string>();
-
-                         if (book.BorrowingHistory == null)
-                              book.BorrowingHistory = new List<BookingRecord>();
-                    }
-               }
+               string json = JsonConvert.SerializeObject(books, jsonSettings);
+               File.WriteAllText(filePath, json);
           }
 
-
-          // Save books to file
-          private void SaveToFile()
+          // Load the list of books from a JSON file
+          public void LoadFromJson()
           {
-               JsonSerializerOptions options = new JsonSerializerOptions
+               if (!File.Exists(filePath)) return;
+
+               string json = File.ReadAllText(filePath);
+
+               var jsonSettings = new JsonSerializerSettings
                {
-                    WriteIndented = true,
-                    IncludeFields = true
+                    TypeNameHandling = TypeNameHandling.Auto
                };
-               string json = JsonSerializer.Serialize(this, options);
-               File.WriteAllText(filePath, json);
+
+               books = JsonConvert.DeserializeObject<List<Book>>(json, jsonSettings);
           }
      }
 }

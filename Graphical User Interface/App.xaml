@@ -4,6 +4,15 @@
              xmlns:local="clr-namespace:Graphical_User_Interface"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+         <!--General Window Properties-->
+          <Style TargetType="Window">
+               <Setter Property="Background" Value="GhostWhite"/>
+               <Setter Property="FontFamily" Value="Georgia"/>
+          </Style>
          
+         <!-- Labels -->
+          <Style TargetType="Label">
+               <Setter Property="Height" Value="33"/>
+          </Style>
     </Application.Resources>
 </Application>

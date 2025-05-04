@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Anku\Desktop\Class Notes\Year 2\Algorithm & Data Structure\Catalogue-of-Books\Graphical User Interface\App.xaml
-1219584333
+5-1772572986
 
-6-502434485
+11-335446224
 14-843274099
-MainWindow.xaml;
+BookActions.xaml;BookDetails.xaml;BookManager.xaml;MainWindow.xaml;SearchBooks.xaml;
 
-True
+False
 

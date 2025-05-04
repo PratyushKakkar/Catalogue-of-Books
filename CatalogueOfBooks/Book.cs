@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 //This is the Refrence Data Type 'Book'
@@ -30,10 +29,10 @@ namespace CatalogueOfBooks
 
           //Reservation Properties
           public bool IsReserved { get; set; }                        //bool to store if the book is reserved
-          public SortedList<DateTime, string> Reservations = new SortedList<DateTime, string>(); //Reservation Date is the unique key, user name is value 
+          public Queue<string> Reservations { get; set; } = new Queue<string>(); //Queue of people who reserved the book
 
           //History of All People who had borrowed the books
-          public List<BookingRecord> BorrowingHistory = new List<BookingRecord>();
+          public List<BookingRecord> BorrowingHistory { get; set; } = new List<BookingRecord>();
 
           //For Testing Purpose, to check outputs based on dates other than today. (Defaults to Now)
           public DateTime AccessDate { get; set; } = DateTime.Now;
@@ -73,12 +72,11 @@ namespace CatalogueOfBooks
           //Default Constructor for Json Loading from file
           public Book()
           {
-               Reservations = new SortedList<DateTime, string>(); 
                BorrowingHistory = new List<BookingRecord>(); 
           }
 
           //Borrow the Book
-          public bool Borrow(string user, DateTime borrowDate)
+          public bool Borrow(string user)
           {
                // Book is already borrowed
                if (IsBorrowed)
@@ -87,7 +85,7 @@ namespace CatalogueOfBooks
                // Successfully borrowed
                IsBorrowed = true;
                BorrowedBy = user;
-               BorrowDate = borrowDate.Date;
+               BorrowDate = DateTime.Now;
                DueDate = BorrowDate.AddDays(10);  // 10-day borrow period
                return true;  
           }
@@ -111,68 +109,34 @@ namespace CatalogueOfBooks
                // Check for pending reservations
                if (Reservations.Count > 0)
                {
-                    // Get the first reservation
-                    var nextReservation = Reservations.First();
-
-                    // Remove it from the dictionary
-                    Reservations.Remove(nextReservation.Key);
-
                     // Assign the book to the next user
                     IsBorrowed = true;
-                    BorrowedBy = nextReservation.Value;
-                    BorrowDate = DateTime.Today.Date;            //ReservationDate was "expected one"
+                    BorrowedBy = Reservations.Dequeue();
+                    BorrowDate = DateTime.Today.Date;            
                     DueDate = BorrowDate.AddDays(10);          
 
                     // IsReserved = true if more reservations remain
                     IsReserved = Reservations.Count > 0;
                }
                else
-               {
                     IsReserved = false;
-               }
-
+               
                // Successfully returned (and maybe re-borrowed)
                return true;
           }
 
 
           //Making a Reservation
-          public bool Reserve(DateTime reservationDate, string userName)
+          public bool Reserve(string userName)
           {
-               // Add reservation to the queue (Sorted Dictionary)
-               Reservations.Add(reservationDate, userName);
-               IsReserved = true;
-               return true;
-           }
-
-          //Updates User's name for a Specific Reservation Date
-          public bool EditReservationName(DateTime reservationDate, string newName)
-          {
-               // Check if Reservation Exists
-               if (Reservations.ContainsKey(reservationDate.Date)) { 
-                    Reservations[reservationDate] = newName;
-                    return true;
-               }
-               return false;
-          }
-
-          //Updates Reservation for a Specific User
-          public bool EditReservationDate(DateTime oldReservationDate, DateTime newReservationDate)
-          {
-               // Check if the old reservation exists, & new Resrvation is available
-               if (Reservations.ContainsKey(oldReservationDate) && !Reservations.ContainsKey(newReservationDate))
+               if (IsBorrowed)
                {
-                    string reservedBy = Reservations[oldReservationDate.Date];
-
-                    // Remove the Old reservation
-                    Reservations.Remove(oldReservationDate);
-
-                    //Add the New Reservation
-                    Reservations.Add(newReservationDate.Date, reservedBy);
-
+                    // Add reservation to the queue (Sorted Dictionary)
+                    Reservations.Enqueue(userName);
+                    IsReserved = true;
                     return true;
                }
-               return false;
+               return false; // Book is not borrowed, so reservation cannot be made
           }
           
           //Calculating the Book's time from today.

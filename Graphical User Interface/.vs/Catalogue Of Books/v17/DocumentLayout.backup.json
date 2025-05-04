@@ -3,13 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\Anku\\Desktop\\Class Notes\\Year 2\\Algorithm \u0026 Data Structure\\Catalogue-of-Books\\Graphical User Interface\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{69C09370-E13A-4D4C-A4D0-1163845B1D72}|Graphical User Interface.csproj|c:\\users\\anku\\desktop\\class notes\\year 2\\algorithm \u0026 data structure\\catalogue-of-books\\graphical user interface\\bookmanager.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{69C09370-E13A-4D4C-A4D0-1163845B1D72}|Graphical User Interface.csproj|solutionrelative:bookmanager.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69C09370-E13A-4D4C-A4D0-1163845B1D72}|Graphical User Interface.csproj|c:\\users\\anku\\desktop\\class notes\\year 2\\algorithm \u0026 data structure\\catalogue-of-books\\graphical user interface\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{69C09370-E13A-4D4C-A4D0-1163845B1D72}|Graphical User Interface.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{04723158-0597-4FE8-919D-150520564D4D}|..\\Command Line Interface\\Command Line Interface.csproj|c:\\users\\anku\\desktop\\class notes\\year 2\\algorithm \u0026 data structure\\catalogue-of-books\\command line interface\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{747350DA-336C-4928-BAE7-0D8263224C8D}|..\\CatalogueOfBooks\\CatalogueOfBooks.csproj|c:\\users\\anku\\desktop\\class notes\\year 2\\algorithm \u0026 data structure\\catalogue-of-books\\catalogueofbooks\\bookinventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{747350DA-336C-4928-BAE7-0D8263224C8D}|..\\CatalogueOfBooks\\CatalogueOfBooks.csproj|c:\\users\\anku\\desktop\\class notes\\year 2\\algorithm \u0026 data structure\\catalogue-of-books\\catalogueofbooks\\books.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,49 +21,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Books.json",
-              "DocumentMoniker": "C:\\Users\\Anku\\Desktop\\Class Notes\\Year 2\\Algorithm \u0026 Data Structure\\Catalogue-of-Books\\CatalogueOfBooks\\Books.json",
-              "RelativeDocumentMoniker": "..\\CatalogueOfBooks\\Books.json",
-              "ToolTip": "C:\\Users\\Anku\\Desktop\\Class Notes\\Year 2\\Algorithm \u0026 Data Structure\\Catalogue-of-Books\\CatalogueOfBooks\\Books.json",
-              "RelativeToolTip": "..\\CatalogueOfBooks\\Books.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-27T14:50:24.963Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "BookInventory.cs",
-              "DocumentMoniker": "C:\\Users\\Anku\\Desktop\\Class Notes\\Year 2\\Algorithm \u0026 Data Structure\\Catalogue-of-Books\\CatalogueOfBooks\\BookInventory.cs",
-              "RelativeDocumentMoniker": "..\\CatalogueOfBooks\\BookInventory.cs",
-              "ToolTip": "C:\\Users\\Anku\\Desktop\\Class Notes\\Year 2\\Algorithm \u0026 Data Structure\\Catalogue-of-Books\\CatalogueOfBooks\\BookInventory.cs",
-              "RelativeToolTip": "..\\CatalogueOfBooks\\BookInventory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:54:22.118Z",
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\Anku\\Desktop\\Class Notes\\Year 2\\Algorithm \u0026 Data Structure\\Catalogue-of-Books\\Graphical User Interface\\App.xaml",
+              "RelativeDocumentMoniker": "App.xaml",
+              "ToolTip": "C:\\Users\\Anku\\Desktop\\Class Notes\\Year 2\\Algorithm \u0026 Data Structure\\Catalogue-of-Books\\Graphical User Interface\\App.xaml",
+              "RelativeToolTip": "App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-04T11:28:25.129Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "BookManager.xaml",
+              "DocumentMoniker": "C:\\Users\\Anku\\Desktop\\Class Notes\\Year 2\\Algorithm \u0026 Data Structure\\Catalogue-of-Books\\Graphical User Interface\\BookManager.xaml",
+              "RelativeDocumentMoniker": "BookManager.xaml",
+              "ToolTip": "C:\\Users\\Anku\\Desktop\\Class Notes\\Year 2\\Algorithm \u0026 Data Structure\\Catalogue-of-Books\\Graphical User Interface\\BookManager.xaml",
+              "RelativeToolTip": "BookManager.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-04T11:26:28.311Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Anku\\Desktop\\Class Notes\\Year 2\\Algorithm \u0026 Data Structure\\Catalogue-of-Books\\Command Line Interface\\Program.cs",
               "RelativeDocumentMoniker": "..\\Command Line Interface\\Program.cs",
               "ToolTip": "C:\\Users\\Anku\\Desktop\\Class Notes\\Year 2\\Algorithm \u0026 Data Structure\\Catalogue-of-Books\\Command Line Interface\\Program.cs",
               "RelativeToolTip": "..\\Command Line Interface\\Program.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAkwEoAAABNAAAAAAAAAA==",
+              "ViewState": "AgIAAKsAAAAAAAAAAAA0wKoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-27T10:22:30.459Z",
+              "WhenOpened": "2025-05-04T10:19:55.096Z",
               "EditorCaption": ""
             }
           ]
